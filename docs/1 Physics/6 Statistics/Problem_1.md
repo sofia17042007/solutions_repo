@@ -42,30 +42,30 @@ Since the only force acting on the projectile (in an idealized case) is gravity,
 
 #### Horizontal Motion
 - No acceleration in the absence of air resistance:
-  \[ a_x = 0 \]
+ $$ a_x = 0 $$
 - Constant velocity:
-  \[ v_x = v_0 \cos\theta \]
+  $$ v_x = v_0 \cos\theta $$
 - Displacement in time \( t \):
-  \[ x = v_0 \cos\theta \cdot t \]
+  $$ x = v_0 \cos\theta \cdot t $$
 
 #### Vertical Motion
 - Acceleration due to gravity:
-  \[ a_y = -g \]
+  $$ a_y = -g $$
 - Velocity as a function of time:
-  \[ v_y = v_0 \sin\theta - g t \]
-- Displacement in time \( t \):
-  \[ y = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 \]
+  $$ v_y = v_0 \sin\theta - g t $$
+- Displacement in time t : 
+  $$ y = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 $$
 
 ### Solving the Basic Differential Equations
 To describe the general motion, we solve the differential equations for velocity and displacement:
 
 1. **Velocity equations:**
-   - \( \frac{dv_x}{dt} = 0 \Rightarrow v_x = v_0 \cos\theta \)
-   - \( \frac{dv_y}{dt} = -g \Rightarrow v_y = v_0 \sin\theta - g t \)
+   - $$ \frac{dv_x}{dt} = 0 \Rightarrow v_x = v_0 \cos\theta $$
+   - $$ \frac{dv_y}{dt} = -g \Rightarrow v_y = v_0 \sin\theta - g t $$
 
 2. **Displacement equations:**
-   - \( \frac{dx}{dt} = v_0 \cos\theta \Rightarrow x = v_0 \cos\theta \cdot t \)
-   - \( \frac{dy}{dt} = v_0 \sin\theta - g t \Rightarrow y = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 \)
+ - $$ \frac{dx}{dt} = v_0 \cos\theta \Rightarrow x = v_0 \cos\theta \cdot t $$
+   - $$ \frac{dy}{dt} = v_0 \sin\theta - g t \Rightarrow y = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2 $$
 
 These equations fully describe the motion of the projectile.
 
