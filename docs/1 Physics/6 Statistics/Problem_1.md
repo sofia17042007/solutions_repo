@@ -48,7 +48,7 @@ Since the only force acting on the projectile (in an idealized case) is gravity,
 - Displacement in time \( t \):
   $$ x = v_0 \cos\theta \cdot t $$
 
-#### Vertical Motion
+#### Vertical Motion change
 - Acceleration due to gravity:
   $$ a_y = -g $$
 - Velocity as a function of time:
