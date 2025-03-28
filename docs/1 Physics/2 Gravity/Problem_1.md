@@ -71,6 +71,8 @@ plt.axis('equal')
 plt.show()
 
 ```
+![ Alt Text](problem3.png)
+![ Alt Text](problem31.png)
 
 ## Results & Discussion
 
