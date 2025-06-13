@@ -172,6 +172,184 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="electromagnetism-lorentz-force-simulation">⚡ Electromagnetism: Lorentz Force Simulation</h1>
+<h2 id="motivation">🧲 Motivation</h2>
+<p>The <strong>Lorentz force</strong> determines the motion of a charged particle in electric and magnetic fields:</p>
+<div class="arithmatex">\[vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>This principle governs systems such as:
+- <strong>Cyclotrons &amp; Synchrotrons</strong> (particle accelerators)
+- <strong>Mass spectrometers</strong>
+- <strong>Plasma confinement</strong> in tokamaks
+- <strong>Astrophysical jets</strong> and solar wind interactions</p>
+<p>By simulating this force, we gain intuitive insight into how fields control particle motion in real applications.</p>
+<hr/>
+<h2 id="task-overview">🔧 Task Overview</h2>
+<h3 id="1-applications-of-lorentz-force">1. Applications of Lorentz Force</h3>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Role of E and B fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cyclotron</td>
+<td>Uses a B field to bend paths and an E field to accelerate particles</td>
+</tr>
+<tr>
+<td>Mass Spectrometer</td>
+<td>Separates particles based on mass-to-charge ratio using B field</td>
+</tr>
+<tr>
+<td>Plasma Confinement</td>
+<td>Magnetic fields trap hot plasma in fusion devices like tokamaks</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="2-particle-motion-simulation">2. Particle Motion Simulation</h3>
+<p>We solve:</p>
+<div class="arithmatex">\[
+\frac{d\vec{v}}{dt} = \frac{q}{m} (\vec{E} + \vec{v} \times \vec{B}), \quad \frac{d\vec{r}}{dt} = \vec{v}
+\]</div>
+<p>Using numerical integration (Euler or Runge-Kutta), we simulate 3 cases:</p>
+<ul>
+<li>Uniform <strong>magnetic</strong> field (circular/helical motion)</li>
+<li>Uniform <strong>electric + magnetic</strong> fields (helical drift)</li>
+<li><strong>Crossed</strong> <span class="arithmatex">\( \vec{E} \perp \vec{B} \)</span> fields (E × B drift)</li>
+</ul>
+<hr/>
+<h3 id="python-code">🧮 Python Code</h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Physical constants and particle properties
+q = 1.6e-19       # charge [C]
+m = 9.11e-31      # mass [kg] (electron)
+E = np.array([0, 0, 0])  # Electric field [V/m]
+B = np.array([0, 0, 1])  # Magnetic field [T]
+v0 = np.array([1e6, 0, 1e6])  # Initial velocity [m/s]
+r0 = np.array([0, 0, 0])      # Initial position [m]
+
+# Simulation parameters
+dt = 1e-11  # time step [s]
+steps = 1000
+
+# Initialize arrays
+r = np.zeros((steps, 3))
+v = np.zeros((steps, 3))
+r[0] = r0
+v[0] = v0
+
+# Euler method to simulate motion
+for i in range(steps - 1):
+    F = q * (E + np.cross(v[i], B))
+    a = F / m
+    v[i+1] = v[i] + a * dt
+    r[i+1] = r[i] + v[i+1] * dt
+
+# Plotting 3D trajectory
+fig = plt.figure(figsize=(10, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], lw=2)
+ax.set_xlabel('x [m]')
+ax.set_ylabel('y [m]')
+ax.set_zlabel('z [m]')
+ax.set_title('Trajectory of a Charged Particle (Lorentz Force)')
+plt.tight_layout()
+plt.show()
+
+</code></pre>
+<p><img alt=" Alt Text" src="../electroproblem1.png"/></p>
+<h2 id="parameter-exploration">⚙️ Parameter Exploration</h2>
+<p>You can experiment with different parameters to observe how they affect the particle's motion:</p>
+<ul>
+<li>
+<p><strong>Magnetic Field (<code>B</code>)</strong>:</p>
+<ul>
+<li>Set <code>B = [0, 0, 1]</code> to observe circular/helical motion.</li>
+<li>Try reversing the field direction (<code>B = [0, 0, -1]</code>) to see the impact on trajectory direction.</li>
+</ul>
+</li>
+<li>
+<p><strong>Electric Field (<code>E</code>)</strong>:</p>
+<ul>
+<li>Add <code>E = [1e5, 0, 0]</code> with <code>B = [0, 0, 1]</code> to generate drift motion.</li>
+<li>Use crossed fields to observe the <strong>E × B drift</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Initial Velocity (<code>v0</code>)</strong>:</p>
+<ul>
+<li>Aligned with <code>B</code> → pure helical path.</li>
+<li>Perpendicular to <code>B</code> → circular motion.</li>
+<li>Oblique → spiral motion.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mass and Charge</strong>:</p>
+<ul>
+<li>For <strong>protons</strong>: <code>m = 1.67e-27 kg</code>, <code>q = 1.6e-19 C</code></li>
+<li>For <strong>electrons</strong>: <code>m = 9.11e-31 kg</code>, <code>q = -1.6e-19 C</code></li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="important-concepts">📌 Important Concepts</h2>
+<h3 id="larmor-radius-cyclotron-radius">🔁 Larmor Radius (Cyclotron Radius):</h3>
+<div class="arithmatex">\[
+r_L = \frac{mv_\perp}{|q|B}
+\]</div>
+<p>The radius of the circular path a charged particle follows in a magnetic field.</p>
+<h3 id="cyclotron-frequency">🔁 Cyclotron Frequency:</h3>
+<div class="arithmatex">\[omega_c = \frac{|q|B}{m}
+\]</div>
+<p>Describes how quickly the particle rotates around the magnetic field lines.</p>
+<h3 id="e-b-drift-velocity">🔁 E × B Drift Velocity:</h3>
+<div class="arithmatex">\[
+\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}\]</div>
+<p>In crossed electric and magnetic fields, particles drift in a direction perpendicular to both.</p>
+<hr/>
+<h2 id="results-applications">📊 Results &amp; Applications</h2>
+<table>
+<thead>
+<tr>
+<th>Field Configuration</th>
+<th>Motion Type</th>
+<th>Real-world Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$$\vec{B} $$only</td>
+<td>Circular / Helical</td>
+<td>Cyclotrons, magnetic confinement in plasmas</td>
+</tr>
+<tr>
+<td>$$ \vec{E} + \vec{B} $$</td>
+<td>Helical + Drift</td>
+<td>Plasma propulsion, charged beam control</td>
+</tr>
+<tr>
+<td>$$ \vec{E} \perp \vec{B} $$</td>
+<td>E × B Drift</td>
+<td>Hall effect sensors, mass spectrometers</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="conclusion">✅ Conclusion</h2>
+<p>The <strong>Lorentz force</strong> provides a powerful model for understanding the dynamics of charged particles in electromagnetic fields. By simulating their motion:</p>
+<ul>
+<li>We can visualize complex paths like <strong>spirals</strong>, <strong>drifts</strong>, and <strong>circular orbits</strong>.</li>
+<li>These insights help explain mechanisms in <strong>fusion reactors</strong>, <strong>spacecraft propulsion</strong>, and <strong>astrophysical phenomena</strong>.</li>
+<li>Tuning parameters such as charge, mass, field strengths, and initial velocities enables exploration of diverse behaviors.</li>
+</ul>
+<p>Simulations like these are essential tools in both education and real-world physics and engineering applications.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
