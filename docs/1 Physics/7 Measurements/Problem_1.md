@@ -31,7 +31,7 @@ The acceleration due to gravity, denoted **g**, is a key constant in physics. Th
 - Attach the weight to the string and suspend from a fixed point.
 - Measure pendulum length from the pivot to the **center of mass** of the weight:
   $$
-  L = \text{__} \, \text{m}, \quad \Delta L = \frac{\text{resolution}}{2} = \text{__} \, \text{m}
+  L =  \text{m}, \quad \Delta L = \frac{\text{resolution}}{2} =  \text{m}
   $$
 
 ---
