@@ -58,6 +58,28 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">Definitions</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-first-cosmic-velocity-orbital-velocity">1. First Cosmic Velocity (Orbital Velocity)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-second-cosmic-velocity-escape-velocity">2. Second Cosmic Velocity (Escape Velocity)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#3-third-cosmic-velocity">3. Third Cosmic Velocity</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-implementation">Python Implementation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis">Analysis</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#importance-in-space-exploration">Importance in Space Exploration</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_3/">Problem 3</a>
@@ -172,6 +194,182 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h2 id="escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities</h2>
+<h2 id="motivation">Motivation</h2>
+<p>Understanding escape and cosmic velocities is vital in celestial mechanics and space exploration. These thresholds determine the minimum speeds required for:</p>
+<ul>
+<li>Staying in orbit (First Cosmic Velocity)</li>
+<li>Escaping a planet's gravity (Second Cosmic Velocity)</li>
+<li>Leaving a star system (Third Cosmic Velocity)</li>
+</ul>
+<p>These concepts are essential for satellite deployment, interplanetary travel, and planning future interstellar missions.</p>
+<hr/>
+<h2 id="definitions">Definitions</h2>
+<h3 id="1-first-cosmic-velocity-orbital-velocity">1. First Cosmic Velocity (Orbital Velocity)</h3>
+<p>The minimum velocity required to maintain a circular orbit just above a celestial body's surface:</p>
+<div class="arithmatex">\[
+v_1 = \sqrt{\frac{GM}{R}}
+\]</div>
+<p>Where:</p>
+<ul>
+<li>
+<div class="arithmatex">\[  G : Gravitational constant (6.674 \times 10^{-11} \, \text{m}^3/\text{kg} \cdot \text{s}^2)\]</div>
+</li>
+<li>
+<div class="arithmatex">\[M : Mass of the celestial body\]</div>
+</li>
+<li>
+<div class="arithmatex">\[ R : Radius of the celestial body\]</div>
+</li>
+</ul>
+<hr/>
+<h3 id="2-second-cosmic-velocity-escape-velocity">2. Second Cosmic Velocity (Escape Velocity)</h3>
+<p>The minimum velocity needed to completely escape the gravitational field of a celestial body:</p>
+<div class="arithmatex">\[
+v_2 = \sqrt{\frac{2GM}{R}} = \sqrt{2} \cdot v_1
+\]</div>
+<hr/>
+<h3 id="3-third-cosmic-velocity">3. Third Cosmic Velocity</h3>
+<p>The minimum velocity needed to escape the gravitational influence of a star (e.g., the Sun) from a planet’s orbit:</p>
+<div class="arithmatex">\[v_3 = \sqrt{v_{\text{planet}}^2 + \frac{2GM_{\text{sun}}}{r}}\]</div>
+<p>Where:</p>
+<ul>
+<li>
+<div class="arithmatex">\[( v_{\text{planet}}): Orbital speed of the planet around the Sun\]</div>
+</li>
+<li>
+<div class="arithmatex">\[ M_{\text{sun}} : Mass of the Sun\]</div>
+</li>
+<li>
+<div class="arithmatex">\[r : Distance from the Sun\]</div>
+</li>
+</ul>
+<hr/>
+<h2 id="python-implementation">Python Implementation</h2>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Constants
+G = 6.67430e-11  # gravitational constant [m^3 kg^-1 s^-2]
+
+# Celestial bodies data: name, mass (kg), radius (m), orbital velocity around the sun (m/s), distance from sun (m)
+bodies = {
+    "Earth": {
+        "mass": 5.972e24,
+        "radius": 6.371e6,
+        "orbital_velocity": 29.78e3,
+        "distance_from_sun": 1.496e11
+    },
+    "Mars": {
+        "mass": 6.417e23,
+        "radius": 3.389e6,
+        "orbital_velocity": 24.07e3,
+        "distance_from_sun": 2.279e11
+    },
+    "Jupiter": {
+        "mass": 1.898e27,
+        "radius": 6.9911e7,
+        "orbital_velocity": 13.07e3,
+        "distance_from_sun": 7.785e11
+    }
+}
+
+# Sun data
+mass_sun = 1.989e30
+
+# Function to calculate velocities
+def calculate_velocities(mass, radius, orbital_velocity, distance_from_sun):
+    v1 = np.sqrt(G * mass / radius)
+    v2 = np.sqrt(2 * G * mass / radius)
+    v3 = np.sqrt(orbital_velocity**2 + (2 * G * mass_sun / distance_from_sun))
+    return v1, v2, v3
+
+# Collect data
+names, v1_list, v2_list, v3_list = [], [], [], []
+
+for name, data in bodies.items():
+    v1, v2, v3 = calculate_velocities(data["mass"], data["radius"], data["orbital_velocity"], data["distance_from_sun"])
+    names.append(name)
+    v1_list.append(v1 / 1000)  # convert to km/s
+    v2_list.append(v2 / 1000)
+    v3_list.append(v3 / 1000)
+
+# Plotting
+x = np.arange(len(names))
+width = 0.25
+
+plt.figure(figsize=(10,6))
+plt.bar(x - width, v1_list, width, label='First Cosmic Velocity')
+plt.bar(x, v2_list, width, label='Second Cosmic Velocity')
+plt.bar(x + width, v3_list, width, label='Third Cosmic Velocity')
+
+plt.xticks(x, names)
+plt.ylabel('Velocity (km/s)')
+plt.title('Cosmic Velocities for Celestial Bodies')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+</code></pre>
+<p><img alt=" Alt Text" src="../Problem2%20Gravity.png"/></p>
+<h2 id="analysis">Analysis</h2>
+<ul>
+<li><strong>Earth</strong>:</li>
+<li><strong>First Cosmic Velocity</strong>: ~7.9 km/s — the minimum speed to enter low Earth orbit.</li>
+<li><strong>Second Cosmic Velocity</strong>: ~11.2 km/s — required to escape Earth’s gravity.</li>
+<li>
+<p><strong>Third Cosmic Velocity</strong>: ~42.1 km/s — needed to leave the Solar System from Earth’s orbit.</p>
+</li>
+<li>
+<p><strong>Mars</strong>:</p>
+</li>
+<li><strong>First Cosmic Velocity</strong>: ~3.6 km/s</li>
+<li><strong>Second Cosmic Velocity</strong>: ~5.0 km/s</li>
+<li>
+<p><strong>Third Cosmic Velocity</strong>: ~34.1 km/s — lower than Earth’s due to weaker solar gravity at Mars’ distance.</p>
+</li>
+<li>
+<p><strong>Jupiter</strong>:</p>
+</li>
+<li><strong>First Cosmic Velocity</strong>: ~18.5 km/s</li>
+<li><strong>Second Cosmic Velocity</strong>: ~59.5 km/s — extremely high due to Jupiter’s massive gravity.</li>
+<li><strong>Third Cosmic Velocity</strong>: ~24.1 km/s — lower than Earth’s because Jupiter is farther from the Sun.</li>
+</ul>
+<hr/>
+<h2 id="importance-in-space-exploration">Importance in Space Exploration</h2>
+<ul>
+<li>
+<p><strong>Artificial Satellites</strong>:<br/>
+  Must reach at least the first cosmic velocity to maintain orbit.</p>
+</li>
+<li>
+<p><strong>Interplanetary Missions</strong>:<br/>
+  Require second cosmic velocity to break free from a planet's gravitational field.</p>
+</li>
+<li>
+<p><strong>Gravity Assists</strong>:<br/>
+  Used to increase velocity without using fuel, crucial for reaching or exceeding third cosmic velocity.</p>
+</li>
+<li>
+<p><strong>Interstellar Travel</strong>:<br/>
+  Involves surpassing third cosmic velocity, demanding advanced propulsion systems like ion drives, solar sails, or nuclear propulsion.</p>
+</li>
+<li>
+<p><strong>Fuel Optimization</strong>:<br/>
+  Knowing the exact velocities allows for precise and energy-efficient mission planning.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>Understanding cosmic velocities is fundamental to spaceflight and mission design.<br/>
+They define the energy thresholds for different phases of space exploration:</p>
+<ul>
+<li><strong>First Cosmic Velocity</strong>: Required for stable orbit.</li>
+<li><strong>Second Cosmic Velocity</strong>: Required to escape a planet.</li>
+<li><strong>Third Cosmic Velocity</strong>: Required to escape a star system.</li>
+</ul>
+<p>These principles are the foundation of astrodynamics and are key to designing efficient, scalable missions that can reach other planets—and eventually other stars.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
