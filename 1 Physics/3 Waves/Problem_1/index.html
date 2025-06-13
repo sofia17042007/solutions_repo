@@ -172,6 +172,112 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="interference-patterns-on-a-water-surface">🌊 Interference Patterns on a Water Surface</h1>
+<h2 id="motivation">🎯 Motivation</h2>
+<p>Interference patterns from multiple wave sources on a water surface reveal core principles of wave physics — especially how waves reinforce or cancel each other. This project simulates the interference of circular waves from point sources placed at the vertices of a regular polygon and visualizes their complex overlapping patterns.</p>
+<hr/>
+<h2 id="task-summary">📐 Task Summary</h2>
+<ul>
+<li>Select a regular polygon (e.g., square).</li>
+<li>Place point wave sources at its vertices.</li>
+<li>Model each wave as a circular sinusoidal wave.</li>
+<li>Apply the superposition principle to simulate interference.</li>
+<li>Visualize the pattern of constructive and destructive interference.</li>
+</ul>
+<hr/>
+<h2 id="theoretical-background">🧮 Theoretical Background</h2>
+<h3 id="single-wave-disturbance">Single Wave Disturbance</h3>
+<p>A circular wave from a point source at $$ \vec{r}_0 $$ is:</p>
+<div class="arithmatex">\[
+\psi(\vec{r}, t) = A \cdot \sin(kr - \omega t + \phi)
+\]</div>
+<p>Where:</p>
+<ul>
+<li>$$ A $$  is the amplitude</li>
+<li>$$ k = \frac{2\pi}{\lambda} $$ is the wave number</li>
+<li>$$ omega = 2\pi f $$is the angular frequency</li>
+<li>$$ r = |\vec{r} - \vec{r}_0| $$ is distance to the observation point</li>
+<li>$$ \phi $$ is the phase offset</li>
+</ul>
+<h3 id="superposition-principle">Superposition Principle</h3>
+<p>For $$ N $$ sources:</p>
+<div class="arithmatex">\[ Psi(\vec{r}, t) = \sum_{i=1}^{N} A \cdot \sin(k |\vec{r} - \vec{r}_i| - \omega t)
+\]</div>
+<hr/>
+<h2 id="python-code-for-square-interference">🐍 Python Code for Square Interference</h2>
+<pre><code class="language-python">```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+A = 1                  # amplitude
+wavelength = 1.0       # in meters
+frequency = 1.0        # in Hz
+k = 2 * np.pi / wavelength
+omega = 2 * np.pi * frequency
+t = 0                  # snapshot in time
+
+# Regular polygon parameters
+N_sources = 5  # Change this to 3 (triangle), 4 (square), 6 (hexagon), etc.
+radius = 2.0   # Distance from center to each source
+
+# Grid for plotting
+x = np.linspace(-5, 5, 500)
+y = np.linspace(-5, 5, 500)
+X, Y = np.meshgrid(x, y)
+
+# Calculate positions of sources
+angles = np.linspace(0, 2 * np.pi, N_sources, endpoint=False)
+source_positions = [(radius * np.cos(a), radius * np.sin(a)) for a in angles]
+
+# Initialize total wave
+eta_total = np.zeros_like(X)
+
+# Superposition of waves from all sources
+for sx, sy in source_positions:
+    R = np.sqrt((X - sx)**2 + (Y - sy)**2)
+    R[R == 0] = 1e-6  # prevent division by zero
+    eta_total += A * np.cos(k * R - omega * t)
+
+# Plotting
+plt.figure(figsize=(8, 8))
+plt.contourf(X, Y, eta_total, levels=100, cmap='seismic')
+plt.colorbar(label='Wave Displacement')
+plt.scatter(*zip(*source_positions), color='black', marker='x', label='Sources')
+plt.title(f'Water Surface Interference Pattern ({N_sources}-gon)')
+plt.xlabel('x [m]')
+plt.ylabel('y [m]')
+plt.axis('equal')
+plt.legend()
+plt.grid(False)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt=" Alt Text" src="../wavesproblem1.png"/></p>
+<h2 id="interpretation">📈 Interpretation</h2>
+<ul>
+<li>
+<p><strong>Blue (0.5× circular velocity)</strong>:<br/>
+  The payload follows an <strong>elliptical suborbital trajectory</strong> and eventually reenters Earth's atmosphere.</p>
+</li>
+<li>
+<p><strong>Green (1.0× circular velocity)</strong>:<br/>
+  The payload maintains a <strong>stable circular orbit</strong> around Earth. This is the ideal velocity for low Earth orbit (LEO).</p>
+</li>
+<li>
+<p><strong>Red (1.2× circular velocity)</strong>:<br/>
+  The payload exceeds escape velocity, following a <strong>hyperbolic trajectory</strong>, and escapes Earth's gravitational influence.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="conclusion">🚀 Conclusion</h2>
+<p>This simulation demonstrates how a payload's <strong>initial speed</strong> determines its fate:</p>
+<ul>
+<li>Speeds <strong>below orbital velocity</strong> result in <strong>reentry or crash</strong>.</li>
+<li>Speeds <strong>equal to orbital velocity</strong> yield <strong>sustained orbit</strong>.</li>
+<li>Speeds <strong>above escape velocity</strong> lead to <strong>departure from Earth’s gravity</strong>.</li>
+</ul>
+<p>Understanding these dynamics is crucial for mission planning, satellite deployment, and interplanetary exploration.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
