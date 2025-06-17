@@ -65,6 +65,8 @@ def estimate_pi_circle(num_points=10000):
 estimate_pi_circle(10000)
 ```
 
+![ Alt Text](problem73848.png)
+
 ---
 
 ## 📈 Convergence Analysis
