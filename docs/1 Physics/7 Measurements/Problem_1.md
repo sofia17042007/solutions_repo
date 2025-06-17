@@ -38,18 +38,19 @@ The acceleration due to gravity $ g $ is a fundamental physical constant influen
 
 Measured time for **10 oscillations**, repeated 10 times:
 
-| Trial | Time for 10 Oscillations $ t_i $ [s] |
-|-------|--------------------------------------|
-| 1     | 20.13                                |
-| 2     | 20.08                                |
-| 3     | 20.15                                |
-| 4     | 20.09                                |
-| 5     | 20.11                                |
-| 6     | 20.10                                |
-| 7     | 20.14                                |
-| 8     | 20.12                                |
-| 9     | 20.07                                |
-| 10    | 20.13                                |
+| Trial | Time for 10 Oscillations $$ t_i [s] $$ |
+|-------|---------------------------------------------|
+|   1   | 20.13                                       |
+|   2   | 20.08                                       |
+|   3   | 20.15                                       |
+|   4   | 20.09                                       |
+|   5   | 20.11                                       |
+|   6   | 20.10                                       |
+|   7   | 20.14                                       |
+|   8   | 20.12                                       |
+|   9   | 20.07                                       |
+|  10   | 20.13                                       |
+
 
 - Mean time for 10 oscillations:  
   $ \bar{t} = 20.112 \, \text{s} $
