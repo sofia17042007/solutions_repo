@@ -93,7 +93,7 @@ $$
 \Delta g = 0.0051 \cdot 9.78 = 0.050 \, \text{m/s}^2
 $$
 $$
-\boxed{g = 9.78 \pm 0.05 \, \text{m/s}^2}
+boxed{g = 9.78 \pm 0.05 \, \text{m/s}^2
 $$
 
 ---
