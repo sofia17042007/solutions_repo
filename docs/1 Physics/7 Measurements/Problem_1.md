@@ -5,7 +5,7 @@
 
 ## 🎯 Motivation
 
-The acceleration due to gravity $$g$$ is a fundamental physical constant 🌍. A classical and elegant method for determining it is by measuring the period of a simple pendulum. This experiment highlights the importance of accurate measurement and uncertainty analysis 🔍.
+The acceleration due to gravity $$ g $$ is a fundamental physical constant 🌍. A classical and elegant method for determining it is by measuring the period of a simple pendulum. This experiment highlights the importance of accurate measurement and uncertainty analysis 🔍.
 
 ---
 
