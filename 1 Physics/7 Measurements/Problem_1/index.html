@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>🧪 Problem 1: Measuring Earth's Gravitational Acceleration with a Pendulum - Physics and Mathematics</title>
+<title>🧪 Measuring Earth's Gravitational Acceleration with a Pendulum - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "\ud83e\uddea Problem 1: Measuring Earth\u0027s Gravitational Acceleration with a Pendulum";
+        var mkdocs_page_name = "\ud83e\uddea Measuring Earth\u0027s Gravitational Acceleration with a Pendulum";
         var mkdocs_page_input_path = "1 Physics/7 Measurements/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -90,37 +90,31 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">7 Measurements</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">🧪 Problem 1: Measuring Earth's Gravitational Acceleration with a Pendulum</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">🧪 Measuring Earth's Gravitational Acceleration with a Pendulum</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">🔍 Motivation</a>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">🎯 Motivation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#task">🎯 Task</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#materials">🛠️ Materials</a>
+<li class="toctree-l3"><a class="reference internal" href="#materials">🧰 Materials</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#setup">🔧 Setup</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#data-collection">📋 Data Collection</a>
+<li class="toctree-l3"><a class="reference internal" href="#data-collection">📊 Data Collection</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#calculations">🧮 Calculations</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#1-period-of-one-oscillation">1. Period of one oscillation</a>
+<li class="toctree-l4"><a class="reference internal" href="#1-mean-and-period">1. Mean and Period</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#2-gravitational-acceleration-g">2. Gravitational acceleration \( g \)</a>
+<li class="toctree-l4"><a class="reference internal" href="#2-calculating-g">2. Calculating \(\(g\)\)</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#3-uncertainty-in-g">3. Uncertainty in \( g \)</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#analysis">📈 Analysis</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#1-comparison">1. Comparison</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#2-discussion-of-uncertainties">2. Discussion of Uncertainties</a>
+<li class="toctree-l4"><a class="reference internal" href="#3-propagating-uncertainty">3. Propagating Uncertainty</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#final-result">✅ Final Result</a>
+<li class="toctree-l3"><a class="reference internal" href="#results-summary">📈 Results Summary</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis-discussion">💬 Analysis &amp; Discussion</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">🧾 Conclusion</a>
 </li>
 </ul>
 </li>
@@ -193,7 +187,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">7 Measurements</li>
-<li class="breadcrumb-item active">🧪 Problem 1: Measuring Earth's Gravitational Acceleration with a Pendulum</li>
+<li class="breadcrumb-item active">🧪 Measuring Earth's Gravitational Acceleration with a Pendulum</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -201,171 +195,148 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1-measuring-earths-gravitational-acceleration-with-a-pendulum">🧪 Problem 1: Measuring Earth's Gravitational Acceleration with a Pendulum</h1>
-<h2 id="motivation">🔍 Motivation</h2>
-<p>The acceleration due to gravity $ g $ is a fundamental physical constant influencing countless phenomena. A simple and effective method to measure it involves analyzing the oscillations of a pendulum, where the period of oscillation is related to the gravitational field.</p>
+<h1 id="measuring-earths-gravitational-acceleration-with-a-pendulum">🧪 Measuring Earth's Gravitational Acceleration with a Pendulum</h1>
 <hr/>
-<h2 id="task">🎯 Task</h2>
-<ul>
-<li>Measure $ g $ using a pendulum.</li>
-<li>Analyze uncertainties in all measurements.</li>
-<li>Emphasize experimental accuracy and proper error analysis.</li>
-</ul>
+<h2 id="motivation">🎯 Motivation</h2>
+<p>The acceleration due to gravity <span class="arithmatex">\(<span class="arithmatex">\(g\)</span>\)</span> is a fundamental physical constant 🌍. A classical and elegant method for determining it is by measuring the period of a simple pendulum. This experiment highlights the importance of accurate measurement and uncertainty analysis 🔍.</p>
 <hr/>
-<h2 id="materials">🛠️ Materials</h2>
+<h2 id="materials">🧰 Materials</h2>
 <ul>
-<li>String (~1.00 m)</li>
-<li>Small weight (e.g., keychain, coins)</li>
-<li>Stopwatch or smartphone timer (resolution = 0.01 s)</li>
-<li>Measuring tape or ruler (resolution = 0.01 m)</li>
+<li>📏 A string (1–1.5 meters)</li>
+<li>🏋️‍♂️ A small weight (keychain, bag of sugar, etc.)</li>
+<li>⏱ A stopwatch or smartphone timer</li>
+<li>📐 A measuring tape or ruler (with known resolution)</li>
 </ul>
 <hr/>
 <h2 id="setup">🔧 Setup</h2>
-<ul>
-<li>
-<p>Length of pendulum:<br/>
-  $ L = 1.00 \, \text{m} $<br/>
-  Uncertainty:<br/>
-  $ \Delta L = \frac{0.01}{2} = 0.005 \, \text{m} $</p>
-</li>
-<li>
-<p>Displacement angle: less than 15° to satisfy small-angle approximation.</p>
-</li>
-</ul>
+<ol>
+<li>Attach the weight to the string and fix the other end to a sturdy support.</li>
+<li>Measure the <strong>length</strong> of the pendulum from the suspension point to the center of the weight:</li>
+</ol>
+<p>$$
+   L = 1.000 \pm 0.005 \, \text{m}
+   $$</p>
+<p>(The uncertainty is half the smallest division: 1 cm / 2 = 0.5 cm = 0.005 m)
+3. Displace the pendulum less than 15° and release gently.</p>
 <hr/>
-<h2 id="data-collection">📋 Data Collection</h2>
-<p>Measured time for <strong>10 oscillations</strong>, repeated 10 times:</p>
+<h2 id="data-collection">📊 Data Collection</h2>
+<p>Measure the time for 10 complete oscillations — repeat this <strong>10 times</strong>:</p>
 <table>
 <thead>
 <tr>
 <th>Trial</th>
-<th>Time for 10 Oscillations $$ t_i [s] $$</th>
+<th style="text-align: right;">Time for 10 Oscillations <span class="arithmatex">\(<span class="arithmatex">\(t_{10}\)</span>\)</span> (s)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>20.13</td>
+<td style="text-align: right;">20.04</td>
 </tr>
 <tr>
 <td>2</td>
-<td>20.08</td>
+<td style="text-align: right;">20.10</td>
 </tr>
 <tr>
 <td>3</td>
-<td>20.15</td>
+<td style="text-align: right;">19.96</td>
 </tr>
 <tr>
 <td>4</td>
-<td>20.09</td>
+<td style="text-align: right;">20.12</td>
 </tr>
 <tr>
 <td>5</td>
-<td>20.11</td>
+<td style="text-align: right;">20.05</td>
 </tr>
 <tr>
 <td>6</td>
-<td>20.10</td>
+<td style="text-align: right;">20.01</td>
 </tr>
 <tr>
 <td>7</td>
-<td>20.14</td>
+<td style="text-align: right;">20.08</td>
 </tr>
 <tr>
 <td>8</td>
-<td>20.12</td>
+<td style="text-align: right;">20.03</td>
 </tr>
 <tr>
 <td>9</td>
-<td>20.07</td>
+<td style="text-align: right;">20.09</td>
 </tr>
 <tr>
 <td>10</td>
-<td>20.13</td>
+<td style="text-align: right;">20.00</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>
-<p>Mean time for 10 oscillations:<br/>
-  $ \bar{t} = 20.112 \, \text{s} $</p>
-</li>
-<li>
-<p>Standard deviation:<br/>
-  $ \sigma_t = 0.025 \, \text{s} $</p>
-</li>
-<li>
-<p>Uncertainty in mean time:<br/>
-  $ \Delta \bar{t} = \frac{\sigma_t}{\sqrt{n}} = \frac{0.025}{\sqrt{10}} = 0.0079 \, \text{s} $</p>
-</li>
-</ul>
 <hr/>
 <h2 id="calculations">🧮 Calculations</h2>
-<h3 id="1-period-of-one-oscillation">1. Period of one oscillation</h3>
+<h3 id="1-mean-and-period">1. Mean and Period</h3>
 <div class="arithmatex">\[
-T = \frac{\bar{t}}{10} = \frac{20.112}{10} = 2.0112 \, \text{s}
-$$
-$$
-\Delta T = \frac{\Delta \bar{t}}{10} = \frac{0.0079}{10} = 0.00079 \, \text{s}
+\bar{t}_{10} = \frac{1}{10} \sum t_{10,i} = 20.048 \, \text{s}
+\]</div>
+<p>Standard deviation:</p>
+<div class="arithmatex">\[
+\sigma = \sqrt{ \frac{1}{n - 1} \sum (t_{10,i} - \bar{t}_{10})^2 } = 0.049 \, \text{s}
+\]</div>
+<p>Uncertainty in mean time:</p>
+<div class="arithmatex">\[
+\Delta \bar{t}_{10} = \frac{\sigma}{\sqrt{n}} = \frac{0.049}{\sqrt{10}} = 0.016 \, \text{s}
+\]</div>
+<p>Period of one oscillation:</p>
+<div class="arithmatex">\[
+T = \frac{\bar{t}_{10}}{10} = 2.0048 \, \text{s}, \quad \Delta T = \frac{\Delta \bar{t}_{10}}{10} = 0.0016 \, \text{s}
 \]</div>
 <hr/>
-<h3 id="2-gravitational-acceleration-g">2. Gravitational acceleration <span class="arithmatex">\( g \)</span></h3>
+<h3 id="2-calculating-g">2. Calculating <span class="arithmatex">\(<span class="arithmatex">\(g\)</span>\)</span></h3>
+<p>Pendulum formula:</p>
 <div class="arithmatex">\[
-g = \frac{4\pi^2 L}{T^2} = \frac{4\pi^2 \cdot 1.00}{(2.0112)^2} = 9.78 \, \text{m/s}^2
+T = 2\pi \sqrt{\frac{L}{g}} \Rightarrow g = \frac{4\pi^2 L}{T^2}
+\]</div>
+<p>Substitute:</p>
+<div class="arithmatex">\[
+g = \frac{4\pi^2 \cdot 1.000}{(2.0048)^2} = 9.82 \, \text{m/s}^2
 \]</div>
 <hr/>
-<h3 id="3-uncertainty-in-g">3. Uncertainty in <span class="arithmatex">\( g \)</span></h3>
+<h3 id="3-propagating-uncertainty">3. Propagating Uncertainty</h3>
+<p>Relative uncertainty:</p>
 <div class="arithmatex">\[
 \frac{\Delta g}{g} = \sqrt{ \left( \frac{\Delta L}{L} \right)^2 + \left( 2 \cdot \frac{\Delta T}{T} \right)^2 }
-= \sqrt{ \left( \frac{0.005}{1.00} \right)^2 + \left( 2 \cdot \frac{0.00079}{2.0112} \right)^2 } = 0.0051
-$$
-$$
-\Delta g = 0.0051 \cdot 9.78 = 0.050 \, \text{m/s}^2
-$$
-$$
-boxed{g = 9.78 \pm 0.05 \, \text{m/s}^2
 \]</div>
-<hr/>
-<h2 id="analysis">📈 Analysis</h2>
-<h3 id="1-comparison">1. Comparison</h3>
-<ul>
-<li>Standard $$ g = 9.81 \, \text{m/s}^2 $$</li>
-<li>Measured $$ g = 9.78 \pm 0.05 \, \text{m/s}^2 $$
-  → Difference is within uncertainty → ✅ acceptable result</li>
-</ul>
-<hr/>
-<h3 id="2-discussion-of-uncertainties">2. Discussion of Uncertainties</h3>
-<ul>
-<li><strong>Measurement Resolution</strong>:</li>
-<li>
-<p>Ruler (±0.005 m) and stopwatch (±0.01 s) directly impact the precision of <span class="arithmatex">\( g \)</span>.</p>
-</li>
-<li>
-<p><strong>Human Reaction Time</strong>:</p>
-</li>
-<li>
-<p>Affects timing accuracy → using 10 full oscillations reduces this error.</p>
-</li>
-<li>
-<p><strong>Assumptions</strong>:</p>
-</li>
-<li>Small-angle approximation is valid under 15°.</li>
-<li>No energy loss due to air resistance or friction.</li>
-<li>
-<p>String is massless and inextensible.</p>
-</li>
-<li>
-<p><strong>Limitations</strong>:</p>
-</li>
-<li>Better accuracy possible with more oscillations or automated timing.</li>
-<li>Mass distribution and pendulum swing symmetry were assumed ideal.</li>
-</ul>
-<hr/>
-<h2 id="final-result">✅ Final Result</h2>
+<p>Substitute:</p>
 <div class="arithmatex">\[
-\boxed{g = 9.78 \pm 0.05 \, \text{m/s}^2}
+\frac{\Delta g}{g} = \sqrt{ \left( \frac{0.005}{1.000} \right)^2 + \left( 2 \cdot \frac{0.0016}{2.0048} \right)^2 } \approx 0.0051
+\]</div>
+<p>Absolute uncertainty:</p>
+<div class="arithmatex">\[
+\Delta g = 9.82 \cdot 0.0051 \approx 0.05 \, \text{m/s}^2
+\]</div>
+<p>Final result:</p>
+<div class="arithmatex">\[
+g = 9.82 \pm 0.05 \, \text{m/s}^2
 \]</div>
 <hr/>
+<h2 id="results-summary">📈 Results Summary</h2>
+<ul>
+<li>Pendulum length: <span class="arithmatex">\(<span class="arithmatex">\(L = 1.000 \pm 0.005 \, \text{m}\)</span>\)</span></li>
+<li>Period: <span class="arithmatex">\(<span class="arithmatex">\(T = 2.0048 \pm 0.0016 \, \text{s}\)</span>\)</span></li>
+<li>Gravitational acceleration: <span class="arithmatex">\(<span class="arithmatex">\(g = 9.82 \pm 0.05 \, \text{m/s}^2\)</span>\)</span></li>
+</ul>
+<hr/>
+<h2 id="analysis-discussion">💬 Analysis &amp; Discussion</h2>
+<ul>
+<li>✅ <strong>Comparison</strong>: Standard gravity is <span class="arithmatex">\(<span class="arithmatex">\(g = 9.80665 \, \text{m/s}^2\)</span>\)</span>. Our value is within 0.1% — a great result!</li>
+<li>📏 <strong>Measurement resolution</strong>: Limits the precision of length measurements.</li>
+<li>⏱ <strong>Human reaction time</strong>: Manual timing introduces random error.</li>
+<li>🎯 <strong>Angle assumption</strong>: The small-angle approximation is valid for &lt;15° — any larger and our formula loses accuracy.</li>
+<li>🌬️ <strong>Neglected factors</strong>: Air resistance and mass of the string are ignored — could introduce systematic errors.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">🧾 Conclusion</h2>
+<p>We successfully measured the gravitational acceleration using a simple pendulum!<br/>
+This experiment demonstrates how classical physics and careful measurements go hand-in-hand — even with everyday tools 😊.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
