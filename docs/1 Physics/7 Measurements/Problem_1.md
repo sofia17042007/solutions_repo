@@ -104,7 +104,7 @@ $$
 ### 1. Comparison
 
 - Standard $$ g = 9.81 \, \text{m/s}^2 $$
-- Measured $$ g = 9.78 \pm 0.05 \, \text{m/s}^2 $$ 
+- Measured $$ g = 9.78 \pm 0.05 \, \text{m/s}^2 $$
   → Difference is within uncertainty → ✅ acceptable result
 
 ---
@@ -112,19 +112,19 @@ $$
 ### 2. Discussion of Uncertainties
 
 - **Measurement Resolution**:
-    - Ruler (±0.005 m) and stopwatch (±0.01 s) directly impact the precision of \( g \).
+  - Ruler (±0.005 m) and stopwatch (±0.01 s) directly impact the precision of \( g \).
 
 - **Human Reaction Time**:
-    - Affects timing accuracy → using 10 full oscillations reduces this error.
+  - Affects timing accuracy → using 10 full oscillations reduces this error.
 
 - **Assumptions**:
-    - Small-angle approximation is valid under 15°.
-    - No energy loss due to air resistance or friction.
-    - String is massless and inextensible.
+  - Small-angle approximation is valid under 15°.
+  - No energy loss due to air resistance or friction.
+  - String is massless and inextensible.
 
 - **Limitations**:
-    - Better accuracy possible with more oscillations or automated timing.
-    - Mass distribution and pendulum swing symmetry were assumed ideal.
+  - Better accuracy possible with more oscillations or automated timing.
+  - Mass distribution and pendulum swing symmetry were assumed ideal.
 
 ---
 
