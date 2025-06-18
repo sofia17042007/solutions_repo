@@ -92,7 +92,7 @@ $$
 
 ---
 
-## 🪡 Part 2: Estimating \( \pi \) Using Buffon’s Needle
+## 🪡 Part 2: Estimating Using Buffon’s Needle
 
 ### 🧪 1. Theoretical Foundation
 
