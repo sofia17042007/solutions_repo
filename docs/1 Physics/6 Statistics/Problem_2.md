@@ -165,7 +165,7 @@ def estimate_pi_buffon(num_drops=10000, L=1.0, d=2.0):
 
 ---
 
-### 📊 Accuracy & Convergence
+###  Accuracy & Convergence
 
 - Circle method accuracy improves with sample size following:
 
